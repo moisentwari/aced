@@ -67,6 +67,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="pt-6">
+                    <a href="{{route('export.data',$task->id)}}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Download Excel</a>
+                </div>
                 <div>
                     <canvas id="carbon_level" height="280" width="600"></canvas>
                 </div>

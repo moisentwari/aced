@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CarbonDataExport;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\carbon_level;
@@ -9,6 +10,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Excel;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -74,6 +76,11 @@ class TasksController extends Controller
             "time" => now()
         ]);
         echo $carbon;
+    }
+
+    public function export($car)
+    {
+        return (new CarbonDataExport($car))->download('car_carbon_data.xlsx');
     }
 
     public function chartAjax($task)
