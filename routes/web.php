@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('tasks', TasksController::class);
 
     Route::resource('users', UsersController::class);
+    Route::get('carbon/data/download/{car}', [TasksController::class, 'export'])->name('export.data');
 });
 Route::get("chart/data/{task}", [TasksController::class, "chartAjax"]);
 Route::get("/carbon/{task}/{carbon_level}", [TasksController::class, 'carbonemission']);
