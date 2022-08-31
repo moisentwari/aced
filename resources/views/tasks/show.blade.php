@@ -105,6 +105,13 @@
                             borderColor: 'rgb(0, 127, 212)',
                             fill:false,
                             tension: 0.1
+                        },{
+                            label: 'Average level',
+                            data: [parseInt(sum/10),parseInt(sum/10),parseInt(sum/10),parseInt(sum/10),parseInt(sum/10),parseInt(sum/10),parseInt(sum/10),parseInt(sum/10),parseInt(sum/10),parseInt(sum/10)],
+                            borderWidth: 3,
+                            borderColor: 'rgb(255, 0, 0)',
+                            fill:false,
+                            tension: 0.1
                         }]
                     },
                     options: {
