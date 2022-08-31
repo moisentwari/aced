@@ -105,6 +105,13 @@
                             borderColor: 'rgb(0, 127, 212)',
                             fill:false,
                             tension: 0.1
+                        },{
+                            label: 'Average level',
+                            data: [(sum/10),(sum/10),(sum/10),(sum/10),(sum/10),(sum/10),(sum/10),(sum/10),(sum/10),(sum/10)],
+                            borderWidth: 3,
+                            borderColor: 'rgb(255, 0, 0)',
+                            fill:false,
+                            tension: 0.1
                         }]
                     },
                     options: {
