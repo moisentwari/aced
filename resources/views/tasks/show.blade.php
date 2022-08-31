@@ -59,8 +59,8 @@
                                 <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Average Carbon emission
                                     </th>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200" id="average_emission">
-                                        carbon
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        <span id="average_emission">0</span> PPM 
                                     </td>
                                 </tr>
                             </table>
@@ -91,7 +91,7 @@
                 });
                 var sum = 0;
                 $.each(carbonLevel,function(){sum+=parseFloat(this) || 0;});
-                $('#average_emission').html(sum/10);
+                $('#average_emission').html(parseInt(sum/10).toString().split(/(?=(?:...)*$)/).join(','));
                 var carbonChart = document.getElementById("carbon_level").getContext('2d');
 
                 var carbonDiagram = new Chart(carbonChart, {
@@ -121,7 +121,13 @@
                         scales: {
                             yAxes: [{
                                 ticks: {
-                                    beginAtZero:true
+                                    beginAtZero:true,
+                                    userCallback: function(value, index, values) {
+                                        value = value.toString();
+                                        value = value.split(/(?=(?:...)*$)/);
+                                        value = value.join(',');
+                                        return value;
+                                    }
                                 }
                             }],
 
